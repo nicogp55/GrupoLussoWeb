@@ -1,0 +1,99 @@
+.infoSection {
+    width: 100%;
+    min-height: 375px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 30px 20px; /* Añadimos padding horizontal para móvil */
+}
+
+.contentContainer {
+    width: 1200px;
+    max-width: 100%; /* Asegura que no se desborde en pantallas pequeñas */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.title {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-weight: 300;
+    font-size: 25px;
+    letter-spacing: 0.05em;
+    color: #333333;
+    text-transform: uppercase;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+.paragraph1 {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    color: #555555;
+    letter-spacing: 0.05em;
+    max-width: 800px;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.paragraph2 {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 24px;
+    color: #555555;
+    letter-spacing: 0.05em;
+    max-width: 800px;
+    text-align: justify;
+    margin-bottom: 30px;
+}
+
+.bottomLink {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    color: #000000;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 8px;
+}
+
+
+/* --- MEDIA QUERY PARA MÓVIL --- */
+@media (max-width: 768px) {
+    .infoSection {
+        /* Reducimos el padding vertical en móvil */
+        padding: 30px 20px;
+    }
+
+    .title {
+        font-size: 21px;
+        max-width: 90%;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    .paragraph1 {
+        font-size: 16px;
+        line-height: 24px;
+        /* Hacemos el ancho fluido */
+        max-width: 90%;
+        margin-bottom: 15px;
+    }
+
+    .paragraph2 {
+        font-size: 15px;
+        line-height: 22px;
+        /* Hacemos el ancho fluido */
+        max-width: 90%;
+        margin-bottom: 25px;
+    }
+
+    .bottomLink {
+        font-size: 18px;
+    }
+}

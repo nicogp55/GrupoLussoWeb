@@ -1,0 +1,41 @@
+.ctaButton {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background-color: #000000;
+    border-radius: 22px;
+    text-decoration: none;
+    padding: 0 18px;
+    gap: 12px;
+    transition: transform 0.2s ease-in-out;
+    transform-origin: center;
+}
+
+.ctaButton:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.separator {
+    width: 1.5px;
+    height: 100%;
+    background-color: #FFFFFF;
+}
+
+.buttonText {
+    font-size: 18px;
+    font-weight: 300;
+    color: #FFFFFF;
+    white-space: nowrap;
+}
+
+/* Estilos para la variante grande del botón */
+.large {
+    /* Escala el botón un 10% */
+    transform: scale(1.2);
+}
+
+.large:hover {
+    /* El hover del botón grande lo escala un poco más */
+    transform: scale(1.28);
+}

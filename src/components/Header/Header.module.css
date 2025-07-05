@@ -1,0 +1,190 @@
+.header {
+    height: 72px;
+    width: 100%;
+    background-color: #FFFFFF;
+    border-bottom: 0px solid #EAEAEA;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.container {
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    position: relative;
+}
+
+.logoLink {
+    display: block;
+    line-height: 0;
+}
+
+.mainNav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navLink {
+    color: #333333;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 300;
+    white-space: nowrap;
+    transition: transform 0.2s ease-in-out;
+}
+
+.navLink:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* VOLVEMOS A TENER LOS ESTILOS DEL BOTÓN AQUÍ */
+.ctaButton {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background-color: #000000;
+    border-radius: 22px;
+    text-decoration: none;
+    padding: 0 18px;
+    gap: 12px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.ctaButton:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.separator {
+    width: 1.5px;
+    height: 100%; /* Ocupa la altura del botón padre */
+    background-color: #FFFFFF;
+}
+
+.buttonText {
+    font-size: 18px;
+    font-weight: 300;
+    color: #FFFFFF;
+    white-space: nowrap;
+}
+
+/* --- ESTILOS PARA EL BOTÓN HAMBURGUESA --- */
+.btMenu {
+    display: none;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 50px;
+    height: 50px;
+    transition: 0.2s;
+    z-index: 1100;
+}
+.btMenu:active {
+    transform: scale(0.9);
+}
+.btMenu:active,
+.btMenu:focus {
+    outline: none;
+}
+.hamburguer {
+    width: 32px;
+    height: 25px;
+    display: block;
+    position: relative;
+    margin: auto;
+}
+.bar {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 32px;
+    height: 5px;
+    background: #000000;
+    outline: 1px solid transparent;
+    transform-origin: center;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+.bar1 {
+    transform: translateY(-10px);
+}
+.bar3 {
+    transform: translateY(10px);
+}
+.btMenu.menuOpen .bar1 {
+    transform: translateY(0) rotate(45deg);
+}
+.btMenu.menuOpen .bar2 {
+    opacity: 0;
+}
+.btMenu.menuOpen .bar3 {
+    transform: translateY(0) rotate(-45deg);
+}
+
+/* --- ESTILOS PARA EL OVERLAY DEL MENÚ MÓVIL --- */
+.mobileMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 30px;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 320px;
+    background-color: #F5F5F5;
+    transition: right 0.3s ease-in-out;
+    padding: 100px 40px 0 0;
+}
+
+.mobileMenu.open {
+    right: 0;
+}
+.mobileNavLink {
+    font-size: 21px;
+    font-weight: 300;
+    color: #000000;
+    text-decoration: none;
+}
+
+.mobileCtaButton {
+    font-size: 23px;
+    font-weight: 500;
+    color: #333333;
+    text-decoration: none;
+}
+
+
+/* --- MEDIA QUERY PARA MÓVIL --- */
+@media (max-width: 1199px) {
+    .mainNav {
+        display: none;
+    }
+    .btMenu {
+        display: block;
+        position: absolute;
+        top: 23px;
+        right: 30px;
+    }
+    .container {
+        width: 100%;
+    }
+}
