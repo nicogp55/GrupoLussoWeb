@@ -9,10 +9,17 @@
     gap: 12px;
     transition: transform 0.2s ease-in-out;
     transform-origin: center;
+    /*
+      EXPLICACIÓN:
+      Añadimos esta línea para que el botón sea un 10% más pequeño por defecto.
+      Este es el estilo base que afectará al botón en el Header.
+    */
+    transform: scale(0.9);
 }
 
 .ctaButton:hover {
-    transform: scale(1.05);
+    /* Ajustamos el hover para que crezca un poco desde su nuevo tamaño pequeño */
+    transform: scale(0.95);
     cursor: pointer;
 }
 
@@ -29,13 +36,15 @@
     white-space: nowrap;
 }
 
-/* Estilos para la variante grande del botón */
+/*
+  IMPORTANTE:
+  La variante .large que usamos en el Hero anulará este 'transform'
+  y aplicará el suyo, por lo que el botón del Hero no se verá afectado.
+*/
 .large {
-    /* Escala el botón un 10% */
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .large:hover {
-    /* El hover del botón grande lo escala un poco más */
-    transform: scale(1.28);
+    transform: scale(1.15);
 }

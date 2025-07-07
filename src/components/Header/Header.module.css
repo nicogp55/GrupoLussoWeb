@@ -28,19 +28,19 @@
 .mainNav {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 17px;
 }
 
 .navigation {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
 }
 
 .navLink {
     color: #333333;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
     white-space: nowrap;
     transition: transform 0.2s ease-in-out;
@@ -148,8 +148,8 @@
     position: fixed;
     top: 0;
     right: -100%;
-    width: 280px;
-    height: 320px;
+    width: 285px;
+    height: 370px;
     background-color: #F5F5F5;
     transition: right 0.3s ease-in-out;
     padding: 100px 40px 0 0;
