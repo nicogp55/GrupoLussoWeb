@@ -10,7 +10,6 @@
     left: 0;
     z-index: 1000;
 }
-
 .container {
     width: 1200px;
     display: flex;
@@ -19,24 +18,20 @@
     padding: 0 30px;
     position: relative;
 }
-
 .logoLink {
     display: block;
     line-height: 0;
 }
-
 .mainNav {
     display: flex;
     align-items: center;
     gap: 17px;
 }
-
 .navigation {
     display: flex;
     align-items: center;
     gap: 25px;
 }
-
 .navLink {
     color: #333333;
     text-decoration: none;
@@ -45,13 +40,10 @@
     white-space: nowrap;
     transition: transform 0.2s ease-in-out;
 }
-
 .navLink:hover {
     transform: scale(1.05);
     cursor: pointer;
 }
-
-/* VOLVEMOS A TENER LOS ESTILOS DEL BOTÓN AQUÍ */
 .ctaButton {
     display: flex;
     align-items: center;
@@ -62,27 +54,23 @@
     padding: 0 18px;
     gap: 12px;
     transition: transform 0.2s ease-in-out;
+    transform: scale(0.9);
 }
-
 .ctaButton:hover {
-    transform: scale(1.05);
+    transform: scale(0.95);
     cursor: pointer;
 }
-
 .separator {
     width: 1.5px;
-    height: 100%; /* Ocupa la altura del botón padre */
+    height: 100%;
     background-color: #FFFFFF;
 }
-
 .buttonText {
     font-size: 18px;
     font-weight: 300;
     color: #FFFFFF;
     white-space: nowrap;
 }
-
-/* --- ESTILOS PARA EL BOTÓN HAMBURGUESA --- */
 .btMenu {
     display: none;
     border: none;
@@ -137,8 +125,6 @@
 .btMenu.menuOpen .bar3 {
     transform: translateY(0) rotate(-45deg);
 }
-
-/* --- ESTILOS PARA EL OVERLAY DEL MENÚ MÓVIL --- */
 .mobileMenu {
     display: flex;
     flex-direction: column;
@@ -154,7 +140,6 @@
     transition: right 0.3s ease-in-out;
     padding: 100px 40px 0 0;
 }
-
 .mobileMenu.open {
     right: 0;
 }
@@ -164,14 +149,12 @@
     color: #000000;
     text-decoration: none;
 }
-
 .mobileCtaButton {
     font-size: 23px;
     font-weight: 500;
     color: #333333;
     text-decoration: none;
 }
-
 
 /* --- MEDIA QUERY PARA MÓVIL --- */
 @media (max-width: 1199px) {
@@ -186,5 +169,29 @@
     }
     .container {
         width: 100%;
+    }
+}
+
+/* --- BREAKPOINT PARA MÓVILES MUY PEQUEÑOS --- */
+@media (max-width: 480px) {
+    .mobileMenu {
+        /* Aquí puedes cambiar el padding, gap, etc. del menú desplegable */
+        padding: 90px 20px 0 0;
+        gap: 25px;
+        width: 100%; /* Hacemos que ocupe toda la pantalla */
+        height: 100vh;
+        align-items: center; /* Centramos los links */
+        justify-content: center;
+        padding: 0;
+    }
+
+    .mobileNavLink {
+        /* Aquí cambias la fuente del link móvil */
+        font-size: 22px;
+    }
+
+    .mobileCtaButton {
+        /* Y aquí la del botón del menú móvil */
+        font-size: 22px;
     }
 }
