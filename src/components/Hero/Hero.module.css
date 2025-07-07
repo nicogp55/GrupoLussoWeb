@@ -1,12 +1,16 @@
+/* --- ESTILOS BASE (Mobile-First: para 394px y menos) --- */
 .heroSection {
     position: relative;
     width: 100%;
-    height: 90vh;
+    height: 90vh; /* Altura para los móviles más pequeños */
 }
+
 .heroImage {
     object-fit: cover;
     filter: brightness(0.8);
+    object-position: center; /* Por defecto centrado */
 }
+
 .textOverlay {
     position: absolute;
     top: 0;
@@ -18,48 +22,55 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 15px; /* Añadimos padding para que el texto no toque los bordes */
+    padding: 0 15px;
 }
+
 .mainTitle {
     color: #FFFFFF;
     font-family: 'Hanken Grotesk', sans-serif;
     font-weight: 200;
-    font-size: 50px;
+    font-size: 17px; /* Tamaño base para móvil */
     letter-spacing: 0.08em;
     margin: 0;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
 }
+
 .subTitle {
     color: #FFFFFF;
     font-family: 'Hanken Grotesk', sans-serif;
     font-weight: 500;
-    font-size: 60px;
+    font-size: 21px; /* Tamaño base para móvil */
     letter-spacing: 0.08em;
+    line-height: 0.8;
     margin: 0;
     text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
     margin-top: 10px;
 }
+
 .locationText {
     color: #FFFFFF;
     font-family: 'Hanken Grotesk', sans-serif;
     font-weight: 200;
-    font-size: 36px;
+    font-size: 15px; /* Tamaño base para móvil */
     letter-spacing: 0.1em;
     margin: 0;
     text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
     margin-top: 10px;
 }
+
 .heroButtonContainer {
-    margin-top: 50px;
+    margin-top: 25px;
+    transform: scale(0.80); /* Botón pequeño por defecto */
 }
+
 .heroCtaButton {
     height: 48px;
     background-color: #000000;
     border-radius: 24px;
     transition: transform 0.2s ease-in-out;
     border: 1.5px solid #FFFFFF;
-    transform: scale(1.1);
 }
+
 .heroCtaLinkInner {
     display: flex;
     align-items: center;
@@ -68,15 +79,18 @@
     padding: 0 24px;
     gap: 16px;
 }
+
 .heroCtaButton:hover {
-    transform: scale(1.15);
+    transform: scale(1.05); /* El hover será relativo al tamaño actual */
     cursor: pointer;
 }
+
 .separator {
     width: 1.5px;
     height: 100%;
     background-color: #FFFFFF;
 }
+
 .buttonText {
     font-size: 20px;
     font-weight: 300;
@@ -84,8 +98,46 @@
     white-space: nowrap;
 }
 
-/* --- BREAKPOINT PARA TABLETS --- */
-@media (max-width: 1199px) {
+
+/* --- BREAKPOINT PARA MÓVILES (395px y más) --- */
+@media (min-width: 395px) {
+    .mainTitle {
+        font-size: 21px;
+    }
+    .subTitle {
+        font-size: 24px;
+        line-height: 0.9;
+    }
+    .heroButtonContainer {
+        transform: scale(0.95);
+    }
+    .locationText {
+        font-size: 19px;
+    }
+}
+
+/* --- BREAKPOINT PARA MÓVILES (461px y más) --- */
+@media (min-width: 461px) {
+    .mainTitle {
+        font-size: 30px;
+    }
+    .subTitle {
+        font-size: 36px;
+        line-height: 1.1;
+    }
+    .locationText {
+        font-size: 26px;
+    }
+    .heroButtonContainer {
+        transform: scale(0.9);
+    }
+}
+
+/* --- BREAKPOINT PARA TABLETS (769px y más) --- */
+@media (min-width: 769px) {
+    .heroSection {
+        height: 60vh; /* Se hace menos alto en tablet */
+    }
     .mainTitle {
         font-size: 40px;
     }
@@ -95,51 +147,31 @@
     .locationText {
         font-size: 32px;
     }
-}
-
-/* --- BREAKPOINT PARA MÓVILES --- */
-@media (max-width: 768px) {
-    .heroSection {
-        height: 80vh; /* Aumentamos un poco la altura en móvil */
-    }
-    .heroImage {
-        object-position: center;
-    }
-    .mainTitle {
-        font-size: 30px;
-    }
-    .subTitle {
-        font-size: 36px;
-        margin-top: 10px;
-    }
-    .locationText {
-        font-size: 26px;
-        margin-top: 10px;
-    }
     .heroButtonContainer {
         margin-top: 30px;
-        /* Hacemos el botón un poco más pequeño en móvil */
-        transform: scale(0.9);
     }
 }
 
-/* --- BREAKPOINT PARA MÓVILES MUY PEQUEÑOS --- */
-@media (max-width: 480px) {
+/* --- BREAKPOINT PARA ESCRITORIO (1201px y más) --- */
+@media (min-width: 1201px) {
     .heroSection {
-        height: 75vh;
+        height: 90vh; /* Vuelve a ser alto para escritorio */
     }
     .mainTitle {
-        font-size: 22px;
+        font-size: 50px;
     }
     .subTitle {
-        font-size: 28px;
-        line-height: 1.2; /* Mejoramos la altura de línea */
+        font-size: 60px;
+        line-height: initial; /* Reseteamos la altura de línea */
     }
     .locationText {
-        font-size: 18px;
+        font-size: 36px;
     }
     .heroButtonContainer {
-        margin-top: 25px;
-        transform: scale(0.85); /* Aún más pequeño */
+        margin-top: 50px;
+        transform: scale(1.1); /* Botón grande para escritorio */
+    }
+    .heroCtaButton:hover {
+        transform: scale(1.15);
     }
 }
