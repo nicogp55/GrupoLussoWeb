@@ -5,7 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Header.module.css';
 import { FC } from 'react';
-import Button from '../Button/Button';
+
+// Ya no necesitamos el componente Button aquí si lo quitamos
+// import Button from '../Button/Button';
 
 const Header: FC = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -13,6 +15,7 @@ const Header: FC = () => {
 
     return (
         <header className={styles.header}>
+            {/* El contenedor principal del header visible no cambia */}
             <div className={styles.container}>
                 <Link href="/" className={styles.logoLink}>
                     <Image
@@ -28,15 +31,21 @@ const Header: FC = () => {
                     <nav className={styles.navigation}>
                         <Link href="/fiestas-privadas" className={styles.navLink}>Fiestas privadas</Link>
                         <Link href="/eventos-corporativos" className={styles.navLink}>Eventos corporativos</Link>
-                        {/*
-                          EXPLICACIÓN:
-                          Añadimos el nuevo link aquí.
-                        */}
                         <Link href="/eventos-deportivos" className={styles.navLink}>Eventos deportivos</Link>
                         <Link href="/servicios-industriales" className={styles.navLink}>Servicios industriales</Link>
                     </nav>
 
-                    <Button href="/solicitar-presupuesto" />
+                    {/* El botón fue reemplazado por un Link normal en el CSS que me pasaste */}
+                    <a href="/solicitar-presupuesto" className={styles.ctaButton}>
+                        <Image
+                            src="/ico wpp.svg"
+                            alt="Ícono de WhatsApp"
+                            width={22.44}
+                            height={22}
+                        />
+                        <div className={styles.separator}></div>
+                        <span className={styles.buttonText}>Solicitar presupuesto</span>
+                    </a>
                 </div>
 
                 <button
@@ -52,13 +61,14 @@ const Header: FC = () => {
                 </button>
             </div>
 
+            {/*
+              EXPLICACIÓN:
+              El menú móvil ahora está aquí. Al estar en el flujo normal,
+              cuando gane altura, empujará todo lo que venga después.
+            */}
             <div className={`${styles.mobileMenu} ${menuOpen ? styles.open : ''}`}>
                 <Link href="/fiestas-privadas" className={styles.mobileNavLink} onClick={handleMenuToggle}>Fiestas privadas</Link>
                 <Link href="/eventos-corporativos" className={styles.mobileNavLink} onClick={handleMenuToggle}>Eventos corporativos</Link>
-                {/*
-                  EXPLICACIÓN:
-                  Y también lo añadimos en el menú móvil.
-                */}
                 <Link href="/eventos-deportivos" className={styles.mobileNavLink} onClick={handleMenuToggle}>Eventos deportivos</Link>
                 <Link href="/servicios-industriales" className={styles.mobileNavLink} onClick={handleMenuToggle}>Servicios industriales</Link>
                 <Link href="/solicitar-presupuesto" className={styles.mobileCtaButton} onClick={handleMenuToggle}>

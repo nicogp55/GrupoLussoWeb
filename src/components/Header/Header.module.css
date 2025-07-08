@@ -1,37 +1,45 @@
+/* --- ESTILOS GENERALES DEL HEADER --- */
 .header {
-    height: 72px;
     width: 100%;
     background-color: #FFFFFF;
-    border-bottom: 0px solid #EAEAEA;
-    display: flex;
-    justify-content: center;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
+    border-bottom: 1px solid #EAEAEA;
 }
+
 .container {
+    height: 72px;
     width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 30px;
     position: relative;
 }
+
 .logoLink {
     display: block;
     line-height: 0;
+    transform: scale(0.9)
 }
+
+/* --- NAVEGACIÓN DE ESCRITORIO --- */
 .mainNav {
     display: flex;
     align-items: center;
     gap: 17px;
 }
+
 .navigation {
     display: flex;
     align-items: center;
     gap: 25px;
 }
+
 .navLink {
     color: #333333;
     text-decoration: none;
@@ -40,10 +48,13 @@
     white-space: nowrap;
     transition: transform 0.2s ease-in-out;
 }
+
 .navLink:hover {
     transform: scale(1.05);
     cursor: pointer;
 }
+
+/* --- BOTÓN CTA DEL HEADER --- */
 .ctaButton {
     display: flex;
     align-items: center;
@@ -54,27 +65,33 @@
     padding: 0 18px;
     gap: 12px;
     transition: transform 0.2s ease-in-out;
+    transform-origin: center;
     transform: scale(0.9);
 }
+
 .ctaButton:hover {
     transform: scale(0.95);
     cursor: pointer;
 }
+
 .separator {
     width: 1.5px;
     height: 100%;
     background-color: #FFFFFF;
 }
+
 .buttonText {
     font-size: 18px;
     font-weight: 300;
     color: #FFFFFF;
     white-space: nowrap;
 }
+
+/* --- BOTÓN HAMBURGUESA PERSONALIZADO --- */
 .btMenu {
     display: none;
     border: none;
-    padding: 0;
+    padding: 22px 0;
     background: none;
     cursor: pointer;
     border-radius: 4px;
@@ -86,8 +103,7 @@
 .btMenu:active {
     transform: scale(0.9);
 }
-.btMenu:active,
-.btMenu:focus {
+.btMenu:active, .btMenu:focus {
     outline: none;
 }
 .hamburguer {
@@ -125,36 +141,67 @@
 .btMenu.menuOpen .bar3 {
     transform: translateY(0) rotate(-45deg);
 }
+
+/* --- MENÚ MÓVIL DESPLEGABLE --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .mobileMenu {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
+    align-items: center;
     gap: 30px;
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 285px;
-    height: 370px;
-    background-color: #F5F5F5;
-    transition: right 0.3s ease-in-out;
-    padding: 100px 40px 0 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
 }
+
 .mobileMenu.open {
-    right: 0;
+    max-height: 500px;
+    padding: 15px 0 30px 0;
 }
+
+.mobileNavLink, .mobileCtaButton {
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.mobileMenu.open .mobileNavLink,
+.mobileMenu.open .mobileCtaButton {
+    animation: fadeIn 0.4s ease-in-out forwards;
+    opacity: 1;
+}
+
+.mobileMenu.open .mobileNavLink:nth-child(1) { animation-delay: 0.15s; }
+.mobileMenu.open .mobileNavLink:nth-child(2) { animation-delay: 0.25s; }
+.mobileMenu.open .mobileNavLink:nth-child(3) { animation-delay: 0.35s; }
+.mobileMenu.open .mobileNavLink:nth-child(4) { animation-delay: 0.45s; }
+.mobileMenu.open .mobileCtaButton { animation-delay: 0.55s; }
+
 .mobileNavLink {
     font-size: 21px;
     font-weight: 300;
     color: #000000;
-    text-decoration: none;
 }
+
 .mobileCtaButton {
     font-size: 23px;
     font-weight: 500;
     color: #333333;
-    text-decoration: none;
 }
+
 
 /* --- MEDIA QUERY PARA MÓVIL --- */
 @media (max-width: 1199px) {
@@ -164,34 +211,7 @@
     .btMenu {
         display: block;
         position: absolute;
-        top: 23px;
+        top: 11px;
         right: 30px;
-    }
-    .container {
-        width: 100%;
-    }
-}
-
-/* --- BREAKPOINT PARA MÓVILES MUY PEQUEÑOS --- */
-@media (max-width: 480px) {
-    .mobileMenu {
-        /* Aquí puedes cambiar el padding, gap, etc. del menú desplegable */
-        padding: 90px 20px 0 0;
-        gap: 25px;
-        width: 100%; /* Hacemos que ocupe toda la pantalla */
-        height: 100vh;
-        align-items: center; /* Centramos los links */
-        justify-content: center;
-        padding: 0;
-    }
-
-    .mobileNavLink {
-        /* Aquí cambias la fuente del link móvil */
-        font-size: 22px;
-    }
-
-    .mobileCtaButton {
-        /* Y aquí la del botón del menú móvil */
-        font-size: 22px;
     }
 }
