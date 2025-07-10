@@ -43,7 +43,7 @@ const CardsSection: FC = () => {
                         <div className={styles.contentContainer}>
                             <h3 className={styles.cardTitle}>{card.title}</h3>
                             <Link href={card.link} className={styles.cardButton}>
-                                VER OPCIONES DISPONIBLES
+                                VER SOLUCIONES
                             </Link>
                         </div>
                     </div>
