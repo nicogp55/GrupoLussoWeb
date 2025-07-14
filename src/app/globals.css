@@ -9,6 +9,10 @@
 
   --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
+
+  /* Variables de fuente (ya están configuradas en layout.tsx) */
+  /* --font-inter: se define automáticamente por Next.js */
+  /* --font-montserrat: se define automáticamente por Next.js */
 }
 
 * {
