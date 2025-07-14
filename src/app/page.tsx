@@ -3,7 +3,9 @@ import Hero from "@/components/Hero/Hero";
 import InfoSection from "@/components/InfoSection/InfoSection";
 import CardsSection from "@/components/CardsSection/CardsSection";
 import FeatureSection from "@/components/FeatureSection/FeatureSection";
-import WeddingToilets from "@/components/WeddingToilets/WeddingToilets"; // 1. IMPORTAR
+import AdvantagesSection from "@/components/AdvantagesSection/AdvantagesSection"; // ← NUEVO
+import WeddingToilets from "@/components/WeddingToilets/WeddingToilets";
+import PrivatePartiesSection from "@/components/PrivatePartiesSection/PrivatePartiesSection";
 
 export default function Home() {
     return (
@@ -13,7 +15,9 @@ export default function Home() {
             <InfoSection />
             <CardsSection />
             <FeatureSection />
-            <WeddingToilets /> {/* 2. AÑADIR */}
+            <WeddingToilets />
+            <AdvantagesSection /> {/* ← NUEVO - Entre FeatureSection y WeddingToilets */}
+            <PrivatePartiesSection />
         </main>
     );
 }
