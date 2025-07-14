@@ -3,9 +3,11 @@ import Hero from "@/components/Hero/Hero";
 import InfoSection from "@/components/InfoSection/InfoSection";
 import CardsSection from "@/components/CardsSection/CardsSection";
 import FeatureSection from "@/components/FeatureSection/FeatureSection";
-import AdvantagesSection from "@/components/AdvantagesSection/AdvantagesSection"; // ← NUEVO
+import AdvantagesSection from "@/components/AdvantagesSection/AdvantagesSection";
 import WeddingToilets from "@/components/WeddingToilets/WeddingToilets";
 import PrivatePartiesSection from "@/components/PrivatePartiesSection/PrivatePartiesSection";
+import SportsEventsSection from "@/components/SportsEventsSection/SportsEventsSection"; // ← NUEVO
+import SolucionesIndustriales from "@/components/SolucionesIndustriales/SolucionesIndustriales";
 
 export default function Home() {
     return (
@@ -16,8 +18,10 @@ export default function Home() {
             <CardsSection />
             <FeatureSection />
             <WeddingToilets />
-            <AdvantagesSection /> {/* ← NUEVO - Entre FeatureSection y WeddingToilets */}
+            <AdvantagesSection />
             <PrivatePartiesSection />
+            <SportsEventsSection /> {/* ← NUEVO - Añadido al flujo */}
+            <SolucionesIndustriales />
         </main>
     );
 }

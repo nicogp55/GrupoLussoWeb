@@ -1,0 +1,464 @@
+.industrialSection {
+    width: 100%;
+}
+
+/* --- CONTENEDOR DEL TÍTULO --- */
+.titleContainer {
+    width: 100%;
+    margin-top: 0%;
+    margin-bottom: 5%;
+    padding: 20px 15px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.titleWrapper {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sectionTitle {
+    color: #171717;
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.mainContent {
+    width: 100%;
+    min-height: 500px;
+    background-image: url("https://www.oscarparrafotografo.com/wp-content/uploads/2017/01/D4_3131-Editar-Editar.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 0 15px;
+}
+
+.contentWrapper {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- SLIDER DE IMÁGENES --- */
+.imageContainer {
+    width: 100%;
+    margin-top: -40px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.imageWrapper {
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid white;
+    padding: 8px;
+    background: transparent;
+}
+
+.sliderContainer {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    border-top: 1px solid #d4d4d4;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+/* --- SLIDES --- */
+.slidesWrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s ease-in-out;
+    opacity: 0;
+}
+
+.activeSlide {
+    opacity: 1;
+}
+
+.slideContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.slideText {
+    text-align: center;
+    color: white;
+}
+
+.slideText h4 {
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.slideText p {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* --- BOTONES DEL SLIDER --- */
+.sliderButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}
+
+.sliderButton:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.sliderButton:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.prevButton {
+    left: 10px;
+}
+
+.nextButton {
+    right: 10px;
+}
+
+/* --- PUNTOS DE NAVEGACIÓN --- */
+.dotsContainer {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.dot:active {
+    transform: scale(0.9);
+}
+
+.activeDot {
+    background: white;
+}
+
+/* --- CONTENIDO DE TEXTO --- */
+.textContent {
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.textWrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+}
+
+.contentTitle {
+    color: white;
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.contentTitle strong {
+    font-weight: 700;
+}
+
+.description {
+    color: white;
+    text-align: center;
+}
+
+.description p {
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-size: 14px;
+    font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+.description strong {
+    font-weight: 700;
+}
+
+/* --- BOTÓN DE ACCIÓN --- */
+.actionContainer {
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.actionWrapper {
+    width: 100%;
+    max-width: 280px;
+    display: flex;
+    justify-content: center;
+}
+
+.ctaButton {
+    color: white;
+    font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 1.5px;
+    background: transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 25px;
+    border: 1px solid white;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+}
+
+.ctaButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.ctaButton:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.ctaButton span {
+    display: block;
+    cursor: pointer;
+}
+
+/* --- MEDIA QUERIES PARA TABLET --- */
+@media (min-width: 768px) {
+    .titleContainer {
+        margin-top: 6%;
+        margin-bottom: 4%;
+        padding: 30px 30px;
+    }
+
+    .sectionTitle {
+        font-size: 21px;
+        letter-spacing: 4px;
+    }
+
+    .mainContent {
+        min-height: 600px;
+        padding: 0 30px;
+    }
+
+    .sliderContainer {
+        height: 400px;
+    }
+
+    .slideText h4 {
+        font-size: 28px;
+        margin-bottom: 12px;
+        letter-spacing: 3px;
+    }
+
+    .slideText p {
+        font-size: 16px;
+    }
+
+    .sliderButton {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+
+    .prevButton {
+        left: 15px;
+    }
+
+    .nextButton {
+        right: 15px;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+    }
+
+    .contentTitle {
+        font-size: 21px;
+        letter-spacing: 4px;
+    }
+
+    .description p {
+        font-size: 16px;
+    }
+
+    .ctaButton {
+        font-size: 14px;
+        letter-spacing: 2px;
+        padding: 13px 29px;
+    }
+}
+
+/* --- MEDIA QUERIES PARA DESKTOP --- */
+@media (min-width: 1200px) {
+    .titleContainer {
+        margin-top: 5%;
+        margin-bottom: 3%;
+        padding: 40px 30px;
+    }
+
+    .sectionTitle {
+        font-size: 21px;
+        letter-spacing: 6.3px;
+    }
+
+    .mainContent {
+        min-height: 740px;
+    }
+
+    .contentWrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .imageContainer {
+        width: 100%;
+        margin-top: -60px;
+        margin-bottom: 20px;
+        order: 1;
+    }
+
+    .sliderContainer {
+        height: 565px;
+    }
+
+    .slideText h4 {
+        font-size: 32px;
+        margin-bottom: 16px;
+        letter-spacing: 3px;
+    }
+
+    .slideText p {
+        font-size: 18px;
+    }
+
+    .sliderButton {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .prevButton {
+        left: 20px;
+    }
+
+    .nextButton {
+        right: 20px;
+    }
+
+    .textContent {
+        width: 66.6667%;
+        margin-bottom: 20px;
+        order: 2;
+    }
+
+    .textWrapper {
+        padding: 0 20px 0 0;
+    }
+
+    .contentTitle {
+        font-size: 21px;
+        letter-spacing: 6.3px;
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    .description {
+        text-align: left;
+    }
+
+    .actionContainer {
+        width: 33.3333%;
+        margin-bottom: 20px;
+        align-self: center;
+        order: 3;
+    }
+
+    .actionWrapper {
+        max-width: none;
+        padding: 0 0 0 20px;
+    }
+}
