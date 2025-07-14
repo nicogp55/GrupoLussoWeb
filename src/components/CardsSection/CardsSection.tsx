@@ -1,52 +1,50 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import React from 'react';
 import styles from './CardsSection.module.css';
-import { FC } from 'react';
+import Card from './Card';
 
-// Un array de datos para nuestras tarjetas con las imágenes actualizadas
-const cardData = [
+const cardsData = [
     {
-        imageSrc: '/Weddd.jpeg',
-        title: 'Fiestas privadas',
-        link: '/trailer-8-personas',
+        id: 1,
+        title: 'Fiestas Privadas',
+        description: 'Diseñamos celebraciones y bodas exclusivas, cuidando cada detalle para que tus momentos más especiales sean únicos.',
+        buttonText: 'Ver opciones',
+        backgroundImage: '/images/TarjetaBoda.jpeg',
     },
     {
-        // EXPLICACIÓN: Imagen actualizada
-        imageSrc: '/Corp.png',
-        title: 'Eventos corporativos',
-        link: '/trailer-12-personas',
+        id: 2,
+        title: 'Eventos Corporativos',
+        description: 'Potencia la imagen de tu empresa con eventos impecables, desde conferencias y lanzamientos hasta celebraciones de fin de año.',
+        buttonText: 'Ver opciones',
+        backgroundImage: '/images/TarjetaCorporativo.png',
     },
     {
-        // EXPLICACIÓN: Imagen actualizada
-        imageSrc: '/Dep.jpeg',
-        title: 'Eventos deportivos',
-        link: '/trailer-16-personas',
+        id: 3,
+        title: 'Eventos Deportivos',
+        description: 'Desde torneos locales hasta competiciones de alto nivel, gestionamos cada detalle para una experiencia deportiva inolvidable.',
+        buttonText: 'Ver opciones',
+        backgroundImage: '/images/TarjetaDeportivo.jpeg',
     },
     {
-        // EXPLICACIÓN: Imagen actualizada
-        imageSrc: '/Banos.jpg',
-        title: 'Servicios industriales',
-        link: '/trailer-20-personas',
+        id: 4,
+        title: 'Servicios Industriales',
+        description: 'Ofrecemos soluciones integrales para eventos a gran escala, garantizando la infraestructura y logística que tu proyecto necesita.',
+        buttonText: 'Ver opciones',
+        backgroundImage: '/images/TarjetaIndustrial.jpg',
     },
 ];
 
-const CardsSection: FC = () => {
+const CardsSection = () => {
     return (
-        <section className={styles.section}>
-            <div className={styles.gridContainer}>
-                {/* Recorremos el array y creamos una tarjeta por cada item */}
-                {cardData.map((card, index) => (
-                    <div key={index} className={styles.card}>
-                        <div className={styles.imageContainer}>
-                            <Image src={card.imageSrc} alt={card.title} fill objectFit="cover" className={styles.cardImage} />
-                        </div>
-                        <div className={styles.contentContainer}>
-                            <h3 className={styles.cardTitle}>{card.title}</h3>
-                            <Link href={card.link} className={styles.cardButton}>
-                                VER SOLUCIONES
-                            </Link>
-                        </div>
-                    </div>
+        <section className={styles.cardsSection}>
+            <div className={styles.cardsGrid}>
+                {cardsData.map((card) => (
+                    <Card
+                        key={card.id}
+                        title={card.title}
+                        description={card.description}
+                        buttonText={card.buttonText}
+                        backgroundImage={card.backgroundImage}
+                    />
                 ))}
             </div>
         </section>
