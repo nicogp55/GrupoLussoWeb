@@ -3,13 +3,16 @@
 .infoSection {
     width: 100%;
     background-color: #FFFFFF;
-    padding: 30px 2.5%; /* 2.5% de cada lado = 95% de ancho útil */
+    padding: 30px 40px;
     display: flex;
     justify-content: center;
+    /* NUEVO: Altura mínima del 95% del viewport en móvil */
+    min-height: 95vh;
+    align-items: center;
 }
 
 .contentContainer {
-    width: 95%; /* Asegura que el contenido ocupe 95% del ancho disponible */
+    width: 100%;
     max-width: 1200px;
     display: flex;
     flex-direction: column;
@@ -64,7 +67,9 @@
 /* --- BREAKPOINT PARA MÓVILES (395px y más) --- */
 @media (min-width: 395px) {
     .infoSection {
-        padding: 30px 2.5%; /* Mantiene el 95% de ancho en móviles más grandes */
+        padding: 30px 40px;
+        /* Mantiene la altura del 95% del viewport */
+        min-height: 95vh;
     }
     .title {
         font-size: 16px;
@@ -92,7 +97,9 @@
 /* --- BREAKPOINT PARA MÓVILES GRANDES (461px y más) --- */
 @media (min-width: 461px) {
     .infoSection {
-        padding: 30px 2.5%; /* Mantiene consistencia */
+        padding: 30px 40px;
+        /* Mantiene la altura del 95% del viewport */
+        min-height: 95vh;
     }
     .title {
         font-size: 20px;
@@ -112,9 +119,8 @@
 @media (min-width: 769px) {
     .infoSection {
         padding: 30px 50px;
-    }
-    .contentContainer {
-        width: 100%; /* En tablet y desktop vuelve al 100% */
+        /* En tablet reducimos la altura mínima */
+        min-height: 60vh;
     }
     .title {
         max-width: 90%;
@@ -145,10 +151,8 @@
 @media (min-width: 1201px) {
     .infoSection {
         padding: 30px 0;
+        /* En desktop volvemos a la altura mínima original */
         min-height: 375px;
-    }
-    .contentContainer {
-        width: 100%; /* En desktop mantiene el 100% */
     }
     .title {
         max-width: 900px;
