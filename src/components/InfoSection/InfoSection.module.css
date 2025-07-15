@@ -8,7 +8,6 @@
     justify-content: center;
     /* NUEVO: Altura mínima del 95% del viewport en móvil */
     min-height: 95vh;
-    align-items: center;
 }
 
 .contentContainer {
@@ -17,6 +16,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
 }
 
 .title {
