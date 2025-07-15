@@ -3,13 +3,13 @@
 .infoSection {
     width: 100%;
     background-color: #FFFFFF;
-    padding: 30px 40px;
+    padding: 30px 2.5%; /* 2.5% de cada lado = 95% de ancho útil */
     display: flex;
     justify-content: center;
 }
 
 .contentContainer {
-    width: 100%;
+    width: 95%; /* Asegura que el contenido ocupe 95% del ancho disponible */
     max-width: 1200px;
     display: flex;
     flex-direction: column;
@@ -64,7 +64,7 @@
 /* --- BREAKPOINT PARA MÓVILES (395px y más) --- */
 @media (min-width: 395px) {
     .infoSection {
-        padding: 30px 40px;
+        padding: 30px 2.5%; /* Mantiene el 95% de ancho en móviles más grandes */
     }
     .title {
         font-size: 16px;
@@ -91,6 +91,9 @@
 
 /* --- BREAKPOINT PARA MÓVILES GRANDES (461px y más) --- */
 @media (min-width: 461px) {
+    .infoSection {
+        padding: 30px 2.5%; /* Mantiene consistencia */
+    }
     .title {
         font-size: 20px;
     }
@@ -109,6 +112,9 @@
 @media (min-width: 769px) {
     .infoSection {
         padding: 30px 50px;
+    }
+    .contentContainer {
+        width: 100%; /* En tablet y desktop vuelve al 100% */
     }
     .title {
         max-width: 90%;
@@ -140,6 +146,9 @@
     .infoSection {
         padding: 30px 0;
         min-height: 375px;
+    }
+    .contentContainer {
+        width: 100%; /* En desktop mantiene el 100% */
     }
     .title {
         max-width: 900px;
