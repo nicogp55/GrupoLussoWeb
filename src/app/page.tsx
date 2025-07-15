@@ -8,6 +8,7 @@ import WeddingToilets from "@/components/WeddingToilets/WeddingToilets";
 import PrivatePartiesSection from "@/components/PrivatePartiesSection/PrivatePartiesSection";
 import SportsEventsSection from "@/components/SportsEventsSection/SportsEventsSection"; // ← NUEVO
 import SolucionesIndustriales from "@/components/SolucionesIndustriales/SolucionesIndustriales";
+import Formulario from "@/components/Formulario/Formulario";
 
 export default function Home() {
     return (
@@ -22,6 +23,7 @@ export default function Home() {
             <PrivatePartiesSection />
             <SportsEventsSection /> {/* ← NUEVO - Añadido al flujo */}
             <SolucionesIndustriales />
+            <Formulario />
         </main>
     );
 }

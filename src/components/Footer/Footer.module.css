@@ -1,0 +1,102 @@
+/* --- BASE STYLES (Mobile-First: <= 394px) --- */
+.footer {
+    background-color: #1a1a1a;
+    color: #a0a0a0;
+    padding: 60px 20px 30px 20px;
+    font-family: var(--font-inter);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #333;
+}
+
+.logoColumn, .linksWrapper, .socialsColumn {
+    width: 100%;
+}
+
+.logoLink {
+    display: inline-block;
+}
+
+.logo {
+    filter: invert(1) grayscale(1) brightness(2);
+}
+
+.linksWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.linkColumn {
+    min-width: 150px;
+}
+
+.linkTitle {
+    color: #ffffff;
+    font-family: var(--font-montserrat);
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.linkList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.linkList a {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.linkList a:hover {
+    color: #ffffff;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 12px;
+}
+
+/* --- BREAKPOINTS --- */
+@media (min-width: 769px) {
+    .mainContent {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .logoColumn {
+        width: 25%;
+    }
+    .linksWrapper {
+        width: 50%;
+        flex-direction: row;
+        justify-content: center;
+        gap: 60px;
+    }
+    .socialsColumn {
+        width: 25%;
+    }
+}
