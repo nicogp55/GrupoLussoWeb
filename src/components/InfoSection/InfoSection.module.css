@@ -6,6 +6,8 @@
     padding: 30px 40px;
     display: flex;
     justify-content: center;
+    /* NUEVO: Altura mínima del 95% del viewport en móvil */
+    min-height: 95vh;
 }
 
 .contentContainer {
@@ -14,6 +16,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
 }
 
 .title {
@@ -65,6 +69,8 @@
 @media (min-width: 395px) {
     .infoSection {
         padding: 30px 40px;
+        /* Mantiene la altura del 95% del viewport */
+        min-height: 95vh;
     }
     .title {
         font-size: 16px;
@@ -91,6 +97,11 @@
 
 /* --- BREAKPOINT PARA MÓVILES GRANDES (461px y más) --- */
 @media (min-width: 461px) {
+    .infoSection {
+        padding: 30px 40px;
+        /* Mantiene la altura del 95% del viewport */
+        min-height: 95vh;
+    }
     .title {
         font-size: 20px;
     }
@@ -109,6 +120,8 @@
 @media (min-width: 769px) {
     .infoSection {
         padding: 30px 50px;
+        /* En tablet reducimos la altura mínima */
+        min-height: 60vh;
     }
     .title {
         max-width: 90%;
@@ -139,6 +152,7 @@
 @media (min-width: 1201px) {
     .infoSection {
         padding: 30px 0;
+        /* En desktop volvemos a la altura mínima original */
         min-height: 375px;
     }
     .title {
