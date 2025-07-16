@@ -12,8 +12,6 @@ import PrivatePartiesSection from "@/components/PrivatePartiesSection/PrivatePar
 import SportsEventsSection from "@/components/SportsEventsSection/SportsEventsSection";
 import SolucionesIndustriales from "@/components/SolucionesIndustriales/SolucionesIndustriales";
 import Formulario from "@/components/Formulario/Formulario";
-// La siguiente línea se elimina porque causaba el error de compilación.
-// import styles from './globals.css';
 
 
 export default function Home() {
@@ -24,6 +22,13 @@ export default function Home() {
     const triggerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        // --- GUARDA DE SEGURIDAD ---
+        // Si el código se intenta ejecutar en el servidor (donde 'window' no existe),
+        // detenemos la ejecución de este efecto para prevenir el crash.
+        if (typeof window === 'undefined') {
+            return;
+        }
+
         const featureSection = featureSectionRef.current;
         const presentationContainer = presentationContainerRef.current;
         const triggerElement = triggerRef.current;
@@ -131,7 +136,6 @@ export default function Home() {
 
             <div ref={triggerRef} style={{ height: '1px' }} />
 
-            {/* Se cambian los classNames para que sean strings, ya que vienen de un CSS global */}
             <div
                 ref={presentationContainerRef}
                 className={`presentationContainer ${scrollMode === 'presentation' ? 'active' : ''}`}
