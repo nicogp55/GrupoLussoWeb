@@ -12,8 +12,8 @@ import PrivatePartiesSection from "@/components/PrivatePartiesSection/PrivatePar
 import SportsEventsSection from "@/components/SportsEventsSection/SportsEventsSection";
 import SolucionesIndustriales from "@/components/SolucionesIndustriales/SolucionesIndustriales";
 import Formulario from "@/components/Formulario/Formulario";
-// Importamos los estilos para poder usarlos en el className
-import styles from './globals.css';
+// La siguiente línea se elimina porque causaba el error de compilación.
+// import styles from './globals.css';
 
 
 export default function Home() {
@@ -30,7 +30,6 @@ export default function Home() {
 
         if (!featureSection || !presentationContainer || !triggerElement) return;
 
-        // --- LÓGICA PARA MODO DE SCROLL LIBRE ---
         if (scrollMode === 'free') {
             document.body.classList.remove('presentation-active');
 
@@ -78,20 +77,16 @@ export default function Home() {
             };
         }
 
-        // --- LÓGICA PARA MODO PRESENTACIÓN ---
         else if (scrollMode === 'presentation') {
             document.body.classList.add('presentation-active');
-            presentationContainer.focus(); // Ayuda a la accesibilidad
+            presentationContainer.focus();
 
-            // Hacemos scroll para asegurar que la vista de presentación comience correctamente
             presentationContainer.scrollIntoView();
 
             const handleExitPresentation = (event: WheelEvent) => {
                 if (event.deltaY < 0 && presentationContainer.scrollTop === 0) {
                     event.preventDefault();
                     setScrollMode('free');
-                    // --- LA CORRECCIÓN CLAVE ---
-                    // Le ordenamos a la página que vuelva a la sección anterior.
                     featureSection.scrollIntoView({ behavior: 'smooth' });
                 }
             };
@@ -105,7 +100,6 @@ export default function Home() {
                 if (currentY > touchStartY && presentationContainer.scrollTop === 0) {
                     e.preventDefault();
                     setScrollMode('free');
-                    // --- LA CORRECCIÓN CLAVE (para táctil) ---
                     featureSection.scrollIntoView({ behavior: 'smooth' });
                 }
             };
@@ -121,7 +115,7 @@ export default function Home() {
             };
         }
 
-    }, [scrollMode]); // Este efecto se re-ejecuta cada vez que 'scrollMode' cambia.
+    }, [scrollMode]);
 
 
     return (
@@ -137,6 +131,7 @@ export default function Home() {
 
             <div ref={triggerRef} style={{ height: '1px' }} />
 
+            {/* Se cambian los classNames para que sean strings, ya que vienen de un CSS global */}
             <div
                 ref={presentationContainerRef}
                 className={`presentationContainer ${scrollMode === 'presentation' ? 'active' : ''}`}
