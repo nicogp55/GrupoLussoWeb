@@ -1,13 +1,19 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, FC, useRef, useEffect } from 'react'; // Importamos useRef y useEffect
 import styles from './WeddingToilets.module.css';
-import { FC } from 'react';
 
 const WeddingToilets: FC = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
-    // 5 variantes de imágenes placeholder azules
+    // --- NUEVO: Refs para la lógica de Snap ---
+    // Ref para apuntar al elemento <section> en el DOM
+    const sectionRef = useRef<HTMLElement>(null);
+    // Ref para guardar el estado de si la sección está visible o no
+    const isIntersecting = useRef(false);
+    // Ref para controlar el temporizador de fin de scroll
+    const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
+
     const slides = [
         {
             id: 1,
@@ -48,8 +54,58 @@ const WeddingToilets: FC = () => {
         setCurrentSlide(index);
     };
 
+    // --- NUEVO: Lógica del Intersection Observer ---
+    useEffect(() => {
+        const section = sectionRef.current;
+        if (!section) return;
+
+        // Solo aplicamos la lógica en vistas de móvil/tablet
+        if (window.innerWidth >= 1200) return;
+
+        // 1. Lógica para detectar el fin del scroll
+        const handleScroll = () => {
+            if (scrollTimeout.current) {
+                clearTimeout(scrollTimeout.current);
+            }
+
+            scrollTimeout.current = setTimeout(() => {
+                // Cuando el usuario deja de hacer scroll, comprobamos si la sección es visible
+                if (isIntersecting.current) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 1000); // Un pequeño delay para detectar la parada
+        };
+
+        // 2. Observer para detectar la visibilidad de la sección
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                // Actualizamos la ref con el estado de visibilidad
+                isIntersecting.current = entry.isIntersecting;
+            },
+            {
+                // Se activa cuando el 35% de la sección es visible
+                threshold: 0.1,
+            }
+        );
+
+        // 3. Activamos los listeners
+        observer.observe(section);
+        window.addEventListener('scroll', handleScroll);
+
+        // 4. Función de limpieza para evitar fugas de memoria
+        return () => {
+            observer.disconnect();
+            window.removeEventListener('scroll', handleScroll);
+            if (scrollTimeout.current) {
+                clearTimeout(scrollTimeout.current);
+            }
+        };
+    }, []); // El array vacío asegura que este efecto se ejecute solo una vez
+
+
     return (
-        <section id="bodas" className={styles.weddingSection}>
+        // Asignamos la ref a la sección
+        <section id="bodas" className={styles.weddingSection} ref={sectionRef}>
             {/* Título de la sección */}
             <div className={styles.titleContainer}>
                 <div className={styles.titleWrapper}>
@@ -87,7 +143,8 @@ const WeddingToilets: FC = () => {
                                             }`}
                                             style={{
                                                 backgroundColor: slide.color,
-                                                display: index === currentSlide ? 'flex' : 'none'
+                                                // Cambiamos 'display' por 'opacity' para que la transición funcione
+                                                opacity: index === currentSlide ? 1 : 0,
                                             }}
                                         >
                                             <div className={styles.slideContent}>
